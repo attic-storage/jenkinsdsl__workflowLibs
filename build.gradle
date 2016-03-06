@@ -1,0 +1,26 @@
+apply plugin: 'groovy'
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs 'src', 'vars'
+        }
+        resources {
+            srcDirs 'resources'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'http://repo.jenkins-ci.org/releases/' }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy:2.4.6'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.11'
+}
